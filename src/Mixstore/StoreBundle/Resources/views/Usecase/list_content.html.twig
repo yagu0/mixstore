@@ -1,0 +1,16 @@
+<table class="sortable">
+	<thead>
+		<th>Package</th>
+		<th>Headline</th>
+		<th data-sort="float">Grade/10</th>
+	</thead>
+	<tbody>
+	{% for ucs in usecases %}
+		<tr>
+			<td>{{ ucs.package.name }}</td>
+			<td><a href="{{ path('mixstore_store_usecase_view', { id: ucs.id }) }}">{{ ucs.headline }}</a></td>
+			<td>{{ ucs.grade }}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>

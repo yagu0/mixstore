@@ -1,0 +1,40 @@
+div#maintext {
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 15px;
+}
+
+figure {
+	text-align: center;
+}
+
+figure img {
+	width: 75%;
+}
+
+@media screen and (max-width: 500px) {
+figure img {
+	width: 95%;
+	width: 95%;
+}
+}
+
+@media screen and (min-width: 768px) {
+figure img {
+	width: 60%;
+	width: 60%;
+}
+}
+
+@media screen and (min-width: 1024px) {
+figure img {
+	width: 600px;
+	width: 500px;
+}
+}
+
+div.borderbottom {
+	border-bottom: 1px solid grey;
+	margin-bottom: 20px;
+	padding-bottom: 15px;
+}

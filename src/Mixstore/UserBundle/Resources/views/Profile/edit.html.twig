@@ -1,0 +1,18 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }}edit profile{% endblock %}
+
+{% block fos_user_content %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="post" class="fos_user_profile_edit form-horizontal">
+	{# TODO: do not ask for current password #}
+	{{ form_widget(form) }}
+	<div class="form-group">
+		<div class="col-sm-8 col-sm-offset-2">
+			<button type="submit" class="btn btn-primary">{{ 'profile.edit.submit'|trans }}</button>
+		</div>
+	</div>
+</form>
+
+{% endblock fos_user_content %}

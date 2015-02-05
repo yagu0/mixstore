@@ -1,0 +1,5 @@
+{% if is_granted('ROLE_ADMIN') %}
+By {{ name }} {{ surname }} ({{ email }}).
+{% endif %}
+
+View online : {% if type == 'Package' %} {{ url('mixstore_store_package_view', { id: id }) }} {% else %} {{ url('mixstore_store_usecase_view', { id: id }) }} {% endif %}.

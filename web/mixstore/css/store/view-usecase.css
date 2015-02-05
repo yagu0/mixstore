@@ -1,0 +1,30 @@
+/* TODO: merge with view-package.css */
+
+#header {
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ccc;
+}
+
+#description {
+	border-bottom: 1px solid #ccc;
+	padding: 15px 0 15px 15px;
+	margin-bottom: 20px;
+}
+
+#contact {
+	padding-left: 15px;
+}
+
+#moreinfo {
+	padding-left: 15px;
+}
+
+.flush-right {
+	text-align: right;
+}
+
+#admin {
+	margin-bottom: 20px;
+}

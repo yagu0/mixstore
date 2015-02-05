@@ -1,0 +1,8 @@
+mixstore_static:
+    resource: "@MixstoreStaticBundle/Resources/config/routing.yml"
+
+mixstore_store:
+    resource: "@MixstoreStoreBundle/Resources/config/routing.yml"
+
+mixstore_user:
+    resource: "@MixstoreUserBundle/Resources/config/routing.yml"

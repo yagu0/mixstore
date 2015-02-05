@@ -1,0 +1,39 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ parent() }}user / {% endblock %}
+
+{% block header %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('mixstore/css/user/common.css') }}">
+<link rel="stylesheet" href="{{ asset('mixstore/css/form.css') }}">
+{% endblock %}
+
+{% block content %}
+
+{% for type, messages in app.session.flashbag.all() %}
+	{% for key, message in messages %}
+		<div class="row">
+			<div class="col-xs-12 flash-message">
+				{{ message|trans({}, 'FOSUserBundle') }}
+			</div>
+		</div>
+	{% endfor %}
+{% endfor %}
+
+{% if form is defined %}
+	{% form_theme form ':Form:fields.html.twig' %}
+{% endif %}
+
+{% block fos_user_content %}
+{% endblock fos_user_content %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>
+$(document).ready(function() {
+	$('label').addClass('col-sm-2 control-label');
+});
+</script>
+{% endblock %}

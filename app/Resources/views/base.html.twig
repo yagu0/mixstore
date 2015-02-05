@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>{% block title %}mixstore - {% endblock %}</title>
+	{% block header %}
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.1.1/united/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ asset('mixstore/css/base.css') }}" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Merienda+One">
+	{% endblock %}
+	<link rel="icon" type="image/x-icon" href="{{ asset('mixstore/images/favicon.png') }}" />
+</head>
+
+<body>
+
+<div class="navbar navbar-default">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="{{ path('mixstore_static_home') }}">Home</a>
+	</div>
+	<div class="navbar-collapse collapse navbar-responsive-collapse">
+		<ul class="nav navbar-nav navbar-left">
+			<li><a href="{{ path('mixstore_static_about') }}">About</a></li>
+			<li><a href="{{ path('mixstore_static_policy') }}">Policy</a></li>
+		</ul>
+		
+		<ul class="nav navbar-nav navbar-center">
+			<li id="storemenu"><a href="{{ path('mixstore_store_package_list') }}">Store</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+		{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="{{ path('mixstore_user_board') }}">User board</a></li>
+					<li class="divider"></li>
+					<li><a href="{{ path('fos_user_profile_show') }}">See profile</a></li>
+					<li><a href="{{ path('fos_user_profile_edit') }}">Edit profile</a></li>
+					<li><a href="{{ path('fos_user_change_password') }}">Change password</a></li>
+					<li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+				</ul>
+			</li>
+		{% else %}
+			<li id="loginmenu">
+			<a href="{{ path('fos_user_security_login') }}">
+				{{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+			</a>
+			</li>
+		{% endif %}
+		</ul>
+	</div>
+</div>
+
+<div class="container-fluid">
+	{% block content %}{% endblock %}
+</div>
+
+<footer>
+	&copy; Mixstore team 2014 
+	&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp; 
+	<a href="mailto:contact@mixstore.org">Contact us</a>
+</footer>
+
+{% block javascripts %}
+<script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+</body>
+
+</html>

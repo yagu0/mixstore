@@ -1,0 +1,20 @@
+form {
+	margin-top: 25px;
+}
+
+div#afterform {
+	margin-top: 20px;
+}
+
+select {
+	margin-top: 9px;
+}
+
+input[type="checkbox"] {
+	margin-top: 13px;
+}
+
+input[type="file"] {
+	margin-top: 5px;
+	/*height: 48px; doesn't work well - TOFIX */
+}

@@ -1,0 +1,48 @@
+mixstore_store_package_list:
+    pattern: /package/list
+    defaults: { _controller: MixstoreStoreBundle:Package:list }
+
+mixstore_store_package_view:
+    pattern: /package/view/{id}
+    defaults: { _controller: MixstoreStoreBundle:Package:view }
+    requirements:
+        id: \d+
+
+mixstore_store_package_upsert:
+    #id = 0 means "new package"
+    pattern: /package/upsert/{id}
+    defaults: { _controller: MixstoreStoreBundle:Package:upsert, id: 0 }
+    requirements:
+        id: \d+
+
+mixstore_store_package_delete:
+    pattern: /package/delete/{id}
+    defaults: { _controller: MixstoreStoreBundle:Package:delete }
+    requirements:
+        id: \d+
+
+mixstore_store_usecase_list:
+    pattern: /usecase/list/{pkgid}
+    defaults: { _controller: MixstoreStoreBundle:Usecase:list }
+    requirements:
+        pkgid: \d+
+
+mixstore_store_usecase_view:
+    pattern: /usecase/view/{id}
+    defaults: { _controller: MixstoreStoreBundle:Usecase:view }
+    requirements:
+        id: \d+
+
+mixstore_store_usecase_upsert:
+    #id = 0 means "new usecase"
+    pattern: /usecase/upsert/{id}/{pkgid}
+    defaults: { _controller: MixstoreStoreBundle:Usecase:upsert, id: 0, pkgid: 0 }
+    requirements:
+        id: \d+
+        pkgid: \d+
+
+mixstore_store_usecase_delete:
+    pattern: /usecase/delete/{id}
+    defaults: { _controller: MixstoreStoreBundle:Usecase:delete }
+    requirements:
+        id: \d+

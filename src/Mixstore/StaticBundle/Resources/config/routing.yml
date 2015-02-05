@@ -1,0 +1,11 @@
+mixstore_static_home:
+    pattern: /
+    defaults: { _controller: MixstoreStaticBundle:Main:home }
+
+mixstore_static_about:
+    pattern: /about
+    defaults: { _controller: MixstoreStaticBundle:Main:about }
+
+mixstore_static_policy:
+    pattern: /policy
+    defaults: { _controller: MixstoreStaticBundle:Main:policy }

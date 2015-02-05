@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ parent() }}usecases{% endblock %}
+
+{% block header %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('mixstore/css/store/table.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	<h2 class="center-txt">Usecases for package {{ pkgname }}</h2>
+	{% include "MixstoreStoreBundle:Usecase:list_content.html.twig" %}
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('mixstore/js/stupidtable.min.js') }}"></script>
+<script>
+$(document).ready(function() 
+{ 
+	$(".sortable").stupidtable();
+});
+</script>
+{% endblock %}

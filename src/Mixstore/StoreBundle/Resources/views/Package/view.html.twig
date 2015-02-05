@@ -1,0 +1,66 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ parent() }}package{% endblock %}
+
+{% block header %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('mixstore/css/store/view-package.css') }}">
+{% endblock %}
+
+{% block content %}
+
+{% if pkg.bannerpath != '' %}
+<div class="row">
+	<img id="pkgimage" src={{ asset('mixstore/images/pkg_banners/' ~ pkg.bannerpath) }}>
+</div>
+{% endif %}
+
+<div id="header" class="row">
+	<h1><a href="{{ pkg.url }}">{{ pkg.name }}</a></h2>
+	<h3>{{ pkg.headline }}</h4>
+</div>
+
+{%  if pkg.description != '' %}
+<div id="description" class="row">
+	{{ pkg.description | raw }}
+</div>
+{%  endif %}
+
+{%  if pkg.dependencies != ''  %}
+<div id="dependencies" class="row">
+	Dependencies: {{ pkg.dependencies }}
+</div>
+{%  endif %}
+
+<div id="contact" class="row">
+<p>
+	<span class="bold">Authors: </span>{{ pkg.authors }}
+</p>
+<p>
+	<a href="mailto:{{ pkg.contact }}">Contact</a>
+</p>
+</div>
+
+<div id="moreinfo" class="row">
+<p>
+	<a href="{{ path('mixstore_store_usecase_list', { pkgid: pkg.id }) }}">Rating: {% if pkg.rating != 'NA' %} {{ pkg.rating | number_format(2, '.', '') }} {% else %} NA {% endif %} &ndash; #feedbacks: {{ pkg.ucscount }}</a>
+	&nbsp; &mdash; &nbsp;
+	<a href="{{ path('mixstore_store_usecase_upsert', { pkgid: pkg.id }) }}"><button type="button" class="btn btn-primary">New feedback</button></a>
+</p>
+<p>
+	Last updated: {{ pkg.modified | date('Y-m-d / H:i:s') }}
+</p>
+</div>
+
+{% if owner or is_granted('ROLE_ADMIN') %}
+<div id="admin" class="row">
+<div class="col-xs-6 flush-right">
+	<a href="{{ path('mixstore_store_package_upsert', { id: pkg.id }) }}"><button type="button" class="btn btn-primary">Edit</button></a>
+</div>
+<div class="col-xs-6">
+	<a href="{{ path('mixstore_store_package_delete', { id: pkg.id }) }}"><button type="button" class="btn btn-primary">Delete</button></a>
+</div>
+</div>
+{% endif %}
+
+{% endblock %}

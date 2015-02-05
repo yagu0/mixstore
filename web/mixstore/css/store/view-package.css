@@ -1,0 +1,44 @@
+#pkgimage {
+	display: block;
+	width: 100%;
+}
+
+#header {
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ccc;
+}
+
+#description {
+	border-bottom: 1px solid #ccc;
+	padding: 15px 0 15px 15px;
+}
+
+#dependencies {
+	border-bottom: 1px solid #ccc;
+	padding: 15px 0 15px 15px;
+}
+
+#contact {
+	margin-top: 20px;
+	padding-left: 15px;
+}
+
+#moreinfo {
+	padding-left: 15px;
+}
+
+.flush-right {
+	text-align: right;
+}
+
+@media screen and (max-width: 515px) {
+img#pkgimage {
+	height: 150px;
+}
+}
+
+#admin {
+	margin-bottom: 20px;
+}

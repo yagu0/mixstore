@@ -1,0 +1,11 @@
+services:
+    mixstore_user.registration.form.type:
+        class: Mixstore\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: mixstore_user_registration }
+    mixstore_user.profile.form.type:
+        class: Mixstore\UserBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: mixstore_user_profile }

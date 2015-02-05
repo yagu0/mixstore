@@ -1,0 +1,29 @@
+.btn-default {
+	background-color: #333
+}
+
+.note-editor {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.note-editor .note-editable {
+	background-color: #eee;
+}
+
+.note-editor .note-codable {
+	color: white;
+	background-color: #333;
+}
+
+/* next 2 rules should be used, but do not work with summernote [TOFIX] */
+/*
+.CodeMirror {
+	border: 1px solid #eee;
+	height: auto;
+}
+.CodeMirror-scroll {
+	overflow-y: hidden;
+	overflow-x: auto;
+}
+*/

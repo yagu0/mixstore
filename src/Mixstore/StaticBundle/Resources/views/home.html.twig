@@ -1,0 +1,100 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ parent() }}home{% endblock %}
+
+{% block header %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('mixstore/css/static/home.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div id="home-carousel" class="carousel slide borderbottom" data-ride="carousel">
+	<!-- Indicators -->
+	<div class="carousel-playpause">
+		<span class="glyphicon glyphicon-play" id="playbutton"></span>
+		<span class="glyphicon glyphicon-pause" id="pausebutton"></span>
+	</div>
+
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner">
+		<div class="item">
+			<img src="{{ asset('mixstore/images/banner.png') }}" alt="mixstore main banner">
+		</div>
+		{% for key,value in bannersArray %}
+		<div class="item">
+			<a href="{{ path('mixstore_store_package_view', { id: key }) }}">
+				<img src="{{ asset('mixstore/images/pkg_banners/' ~ value) }}" alt="some package banner">
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+
+	<!-- Controls -->
+	<a class="left carousel-control" href="#home-carousel" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+	</a>
+	<a class="right carousel-control" href="#home-carousel" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+	</a>
+</div>
+
+<div class="row borderbottom">
+
+<div class="col-xs-12 col-sm-6 column">
+	<h2>What ?</h2>
+	<p class="justify">Every software, library or package referenced here attempts to <span class="bold">cluster data</span> 
+	into groups defined as the components of a <span class="bold">mixture of probabilistic models</span>. 
+	The resulting classes can be used e.g. for supervised classification or regression.</p>
+	<p class="center-txt"><a href="{{ path('mixstore_static_about') }}">Read more details</a>.</p>
+</div>
+
+<div class="col-xs-12 col-sm-6 column grey-bg xs-shrink">
+	<h2>Where ?</h2>
+	<a href="{{ path('mixstore_store_package_list') }}" class="btn btn-primary btn-lg">In the store !</a>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-xs-12 col-sm-6 column grey-bg xs-shrink">
+	<h2>How ?</h2>
+	<p class="center-txt"><a href="{{ path('mixstore_static_policy') }}">Policy</a> to add a package or feedback.</p>
+</div>
+
+<div class="col-xs-12 col-sm-6 column">
+	<h2>News</h2>
+	<table>
+		{% for newsItem in news %}
+		<tr>
+			<td class="bold">{{ newsItem.created | date('Y-m-d / H:i:s') }}</td>
+			<td><a href="{{ path('mixstore_store_package_view', { id: newsItem.id }) }}">{{ newsItem.name }}</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>
+	$('.glyphicon-play').click(function() {
+		$('#home-carousel').carousel('cycle');
+		$('#playbutton').hide();
+		$('#pausebutton').show();
+	});
+	$('.glyphicon-pause').click(function() {
+		$('#home-carousel').carousel('pause');
+		$('#playbutton').show();
+		$('#pausebutton').hide();
+	});
+	$( document ).ready(function() {
+		$('.carousel-inner .item').eq(0).addClass('active');
+		$('#playbutton').hide();
+	});
+</script>
+{% endblock %}

@@ -1,0 +1,8 @@
+Sure :
+ - translations
+ - add defensive checks at many places to avoid ugly error screens (duplicate key, ...etc)
+ - (re)factor some controllers code
+
+Maybe :
+ - redirect after page access http://knplabs.com/blog/2012/01/13/redirect-after-registration-in-symfony2/
+ - move assets to bundles instead of web/mixstore

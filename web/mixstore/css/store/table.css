@@ -1,0 +1,50 @@
+table {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+@media screen and (min-width: 768px) { 
+table {
+	width: 95%;
+}
+}
+
+table, th, td {
+	text-align: center;
+}
+
+table > thead > tr > th {
+	border: 1px solid #ccc;
+	background-color: #E6FFCC;
+	padding: 13px 5px 13px 5px;
+}
+
+table > tbody > tr > td {
+	border: 1px solid #ccc;
+}
+
+tr:nth-of-type(even) { 
+	background: #eee; 
+}
+
+tr:nth-of-type(odd) { 
+	background: #fff; 
+}
+
+td a {
+	color: #2C3E50;
+	text-decoration: none;
+	display: block;
+	padding: 13px 5px 13px 5px;
+}
+
+td a:hover {
+	text-decoration: none;
+	color: #2C3E50;
+}
+
+th[data-sort]{
+	cursor:pointer;
+	color: #480000;
+}

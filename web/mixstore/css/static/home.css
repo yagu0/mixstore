@@ -1,0 +1,114 @@
+div#carousel-example-generic {
+	border-bottom: 1px solid black;
+}
+
+h2, h3 {
+	text-align: center;
+}
+
+h2 {
+	font-size: 48px;
+}
+
+p, table {
+	font-size: 17px; /*1.3em*/
+}
+
+table {
+	margin: 0 auto;
+	width: 95%;
+	margin-top: 15px;
+}
+
+td {
+	border: 1px solid grey;
+	padding: 5px;
+}
+
+div.column {
+	text-align: center;
+	height: 350px;
+	padding-top: 30px;
+}
+
+@media screen and (max-width: 400px) {
+div.column {
+	padding-top: 15px;
+}
+}
+
+@media screen and (max-width: 767px) {
+div.column {
+	background-color: white;
+	border-bottom: 1px solid black;
+}
+div.xs-shrink {
+	height: 200px;
+}
+h2 {
+	padding-bottom: 15px;
+}
+}
+
+@media screen and (min-width: 768px) {
+div.column {
+	padding-left: 3%;
+	padding-right: 3%;
+}
+h2 {
+	padding-bottom: 24px;
+}
+}
+
+@media screen and (min-width: 1024px) {
+div.column {
+	padding-left: 5%;
+	padding-right: 5%;
+}
+}
+
+div.borderbottom {
+	border-bottom: 1px solid grey;
+}
+
+.grey-bg {
+	background-color: lightgrey;
+}
+
+div#home-carousel {
+	margin-top: 0;
+	width: 100%;
+}
+
+div.carousel-playpause {
+	position: absolute;
+	bottom: 1px;
+	z-index: 15;
+	width: 100%;
+	text-align: center;
+	list-style: none;
+	margin-bottom: 0;
+}
+
+div.carousel-playpause span {
+	padding-left: 0;
+	padding-right: 0;
+	font-size: 115%;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+div.carousel-playpause span {
+	font-size: 150%;
+}
+}
+
+div.carousel-inner div.item img {
+	width: 100%;
+}
+
+@media screen and (max-width: 515px) {
+div.carousel-inner div.item img {
+	height: 150px;
+}
+}

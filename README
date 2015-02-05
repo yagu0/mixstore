@@ -1,0 +1,12 @@
+mixstore utilise Symfony2 ; organisation des répertoires :
+
+    app/: La configuration de l'application,
+    src/: Le code PHP du projet,
+    vendor/: Les bibliothèques tierces,
+    web/: Le répertoire Web racine.
+
+Le répertoire Web racine est l'endroit ou se situent tous les fichiers statiques 
+et publics comme les images, les feuilles de styles et les fichiers javascript.
+C'est aussi le dossier contenant le point d'entrée web/app.php
+
+[Voir http://symfony.com/fr/doc/current/quick_tour/the_architecture.html]

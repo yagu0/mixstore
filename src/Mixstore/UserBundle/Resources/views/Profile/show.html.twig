@@ -1,0 +1,21 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }}profile{% endblock %}
+
+{% block fos_user_content %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="row">
+	<div class="col-xs-12 col-sm-7 col-sm-offset-5 fos_user_user_show">
+		<p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+		<p>First name: {{ user.name }}</p>
+		<p>Last name: {{ user.surname }}</p>
+		{% if user.emailnotif1 %}
+		<p>Notifications enabled for any creation or update</p>
+		{% elseif user.emailnotif0 %}
+		<p>Notifications enabled on packages/usecases creations</p>
+		{% endif %}
+	</div>
+</div>
+
+{% endblock fos_user_content %}

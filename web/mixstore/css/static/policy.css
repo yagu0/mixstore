@@ -1,0 +1,18 @@
+div#maintext {
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+ol.policy li {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+ol.policy li ul {
+	margin-bottom: 3px;
+}
+
+ol.policy li ul li {
+	padding-top: 1px;
+	padding-bottom: 1px;
+}

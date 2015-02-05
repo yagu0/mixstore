@@ -1,0 +1,74 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ parent() }}policy{% endblock %}
+
+{% block header %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('mixstore/css/static/policy.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div id="maintext" class="row">
+
+<h2 class="center">Procedure to add and maintain packages or usecases</h2>
+
+<ol class="policy">
+	<li>
+	Registration is mandatory: follow <a href="{{ path('fos_user_registration_register') }}">this link</a>, 
+	and fill in your name and email address. Neither of them will ever be displayed on the website, 
+	but internally we like to identify people modifying the mixstore pages.
+	</li>
+
+	<li>
+	Once signed up you should be able to <a href="{{ path('fos_user_security_login') }}">login</a>. 
+	Logging in gets you to the main <a href="{{ path('mixstore_user_board') }}">board</a>. 
+	All your actions on the website start from here.
+	</li>
+
+	<li>
+	Both sections (packages and usecases) have a link "add some new thing". Click on either of them 
+	to add for example a new package. The following fields are mandatory :
+	<ul>
+		<li>Name: the name of your package.
+		</li>
+		<li>Headline: a few words to describe what the package does.
+		</li>
+		<li>Url: a web link to (at least) download the package.
+		</li>
+		<li>Authors: a (unstructured) list of authors.
+		</li>
+		<li>Contact: an email address for any exchange related to the package.
+		</li>
+	</ul>
+	<p>
+		Only the description field is optional, because you might already have the description page 
+		on your own website. But even in this case it might be good for SEO, and to give a preview 
+		of your website to mixstore users.
+	</p>
+	<p>
+		Mixstore improves the visibility of your package. In return, <span class="red">we kindly ask 
+		you to provide a visible link to Mixstore on your website.</span>
+	</p></li>
+	
+	<li>
+	Finally, a usecase has the following fields (all mandatory):
+	<ul>
+		<li>Institution: the structure where the work took place. Either academic, 
+		industry (please be more specific) or personal usage.
+		</li>
+		<li>Softwares: a list of packages involved (all in the store).
+		</li>
+		<li>Headline: a few words describing the context of the usecase.
+		</li>
+		<li>Description: an extended abstract showing how the softwares were used.
+		</li>
+		<li>Contact: an email address for any exchange related to the usecase.
+		</li>
+	</ul>
+	</li>
+</ol>
+
+</div>
+
+{% endblock %}

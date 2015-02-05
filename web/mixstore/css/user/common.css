@@ -1,0 +1,23 @@
+div.fos_user_user_show {
+	padding-top: 15px;
+	margin-bottom: 0;
+}
+
+h1 {
+	color: grey;
+	text-align: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+div.flash-message {
+	text-align: center;
+	margin-top: 20px;
+	color: blue;
+}
+
+div.error {
+	text-align: center;
+	margin-top: 20px;
+	color: red;
+}

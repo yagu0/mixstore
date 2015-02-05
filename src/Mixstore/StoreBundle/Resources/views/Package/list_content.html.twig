@@ -1,0 +1,22 @@
+<table class="sortable">
+	<thead>
+		<th data-sort="string">Name</th>
+		<th>Headline</th>
+		<th data-sort="string">Language</th>
+		<th>Grade/10 &ndash; #feedbacks</th>
+	</thead>
+	<tbody>
+	{% for pkg in packages %}
+		<tr>
+			<td><a href="{{ path('mixstore_store_package_view', { id: pkg.id }) }}">{{ pkg.name }}</a></td>
+			<td><a href="{{ path('mixstore_store_package_view', { id: pkg.id }) }}">{{ pkg.headline }}</a></td>
+			<td>{{ pkg.language.name }}</td>
+			<td>
+				<a href="{{ path('mixstore_store_usecase_list', { pkgid: pkg.id }) }}">
+				{% if pkg.rating != 'NA' %} {{ pkg.rating | number_format(2, '.', '') }} {% else %} NA {% endif %} &ndash; {{ pkg.ucscount }}
+				</a>
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>

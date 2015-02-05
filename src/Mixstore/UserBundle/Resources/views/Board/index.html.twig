@@ -1,0 +1,36 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ parent() }}user board{% endblock %}
+
+{% block header %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('mixstore/css/store/table.css') }}">
+<link rel="stylesheet" href="{{ asset('mixstore/css/user/board.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div id="packages" class="row">
+	<h2>My packages</h2>
+	{% include "MixstoreStoreBundle:Package:list_content.html.twig" %}
+	<a class="addnew" href="{{ path('mixstore_store_package_upsert') }}"><button type="button" class="btn btn-primary">New package</button></a>
+</div>
+
+<div id="usecases" class="row">
+	<h2>My usecases</h2>
+	{% include "MixstoreStoreBundle:Usecase:list_content.html.twig" %}
+	<a class="addnew" href="{{ path('mixstore_store_usecase_upsert') }}"><button type="button" class="btn btn-primary">New usecase</button></a> 
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="text/javascript" src="{{ asset('mixstore/js/stupidtable.min.js') }}"></script>
+<script>
+$(document).ready(function() 
+{ 
+	$(".sortable").stupidtable();
+});
+</script>
+{% endblock %}

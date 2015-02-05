@@ -1,0 +1,72 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ parent() }}users{% endblock %}
+
+{% block header %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('mixstore/css/user/admin.css') }}">
+{% endblock %}
+
+{% block content %}
+
+{% if is_granted('ROLE_SUPER_ADMIN') %}
+
+<div class="center">
+<h2>All users</h2>
+<h4>Click on a line to toggle privileges. Admins in <span class="blue">blue</span>. Super-admin(s) in <span class="red">red</span></h4>
+<table>
+	<thead>
+		<th>First name</th>
+		<th>Last name</th>
+		<th>Email</th>
+		<th></th>
+	</thead>
+	<tbody>
+	{% for user in users %}
+		<tr id="{{ user.id }}"
+		{% if 'ROLE_SUPER_ADMIN' in user.roles %}
+			{{ 'class="red"' }}
+		{% elseif 'ROLE_ADMIN' in user.roles %}
+			{{ 'class="user blue"' }}
+		{% else %}
+			{{ 'class="user"' }}
+		{% endif %}
+		>
+			<td>{{ user.name }}</td>
+			<td>{{ user.surname }}</td>
+			<td>{{ user.email }}</td>
+			<td><a href="{{ path('mixstore_user_admin_delete', { id: user.id }) }}">Delete</a></td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+</div>
+
+{% endif %}
+
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>
+$( "tr" ).click(function()
+{
+	//do nothing if super-admin is clicked
+	if ($(this).attr('class').indexOf("red") >= 0)
+		return;
+	
+	//save id for use in AJAX call
+	id = $(this).attr('id');
+    
+    //http://stackoverflow.com/questions/13584591/how-to-integrate-ajax-with-symfony2
+	$.post(
+		"{{ path('mixstore_user_admin_toggle') }}",               
+		{id: id}, 
+		function(response)
+		{
+			$('#' + id).toggleClass("blue");
+		},
+		"text");
+});
+</script>
+{% endblock %}

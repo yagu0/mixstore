@@ -1,0 +1,18 @@
+a.addnew {
+	display: block;
+	text-align: center;
+	margin-top: 10px;
+}
+
+h2 {
+	text-align: center;
+}
+
+#packages {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 25px;
+}
+
+#usecases {
+	padding-bottom: 10px;
+}

@@ -1,0 +1,14 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }}check email{% endblock %}
+
+{% block fos_user_content %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="row">
+	<div class="col-xs-12 col-sm-6 col-sm-offset-3 fos_user_user_show">
+		{{ 'resetting.check_email'|trans({'%email%': email}) }}
+	</div>
+</div>
+
+{% endblock %}

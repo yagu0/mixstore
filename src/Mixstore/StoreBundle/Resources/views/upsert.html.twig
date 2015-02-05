@@ -1,0 +1,81 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ parent() }}upsert package{% endblock %}
+
+{% block header %}
+{{ parent() }}
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ asset('mixstore/css/summernote.min.css') }}" />
+
+<!-- include codemirror (codemirror.css, codemirror.js, xml.js, formatting.js) -->
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.min.css" />
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.min.css" />
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.min.js"></script>
+
+<link rel="stylesheet" href="{{ asset('mixstore/css/store/upsert.css') }}" />
+<link rel="stylesheet" href="{{ asset('mixstore/css/form.css') }}" />
+{% endblock %}
+
+{% block content %}
+
+{% form_theme form ':Form:fields.html.twig' %}
+
+<div class="row center-txt">
+	<h3>{{ title }}</h3>
+	{% if 'ackage' in title %}<p class="red">Please don't forget to add a link to mixstore on your website. Thanks !</p>{% endif %}
+</div>
+
+<form name="upsert_form" method="post" {{ form_enctype(form) }} class="form-horizontal">
+	{{ form_widget(form) }}
+	<div class="form-group">
+		<div class="col-sm-8 col-sm-offset-2">
+			<button type="submit" class="btn btn-primary" onclick="saveValidateSubmit()">Submit</button>
+		</div>
+	</div>
+</form>
+
+{% endblock content %}
+
+{%block javascripts %}
+{{ parent() }}
+<script src="{{ asset('mixstore/js/summernote.min.js') }}"></script>
+
+<script>
+
+$(document).ready(function()
+{
+	//add label classes
+	$('label').addClass('col-sm-2 control-label');
+
+
+    $('#form_description').summernote({
+		height: 150,
+		codemirror: { // codemirror options
+			theme: 'monokai',
+			lineNumbers: false,
+			viewportMargin: Infinity //does not work, see below
+		}
+	});
+	//HACK (summernote set inline height for codable element...)
+	//$('note-codable').css('height', '');
+	//NOTE: there is also a bug after full screen : no autoresize...
+
+	$('.note-editor').addClass('col-sm-8');
+
+});
+
+function saveValidateSubmit()
+{
+	$('#form_description').html($('.note-editable').code());
+	//TODO: improve, should work also for code
+	//http://hackerwins.github.io/summernote/features.html#api-summernote
+	
+	//document.forms['upsert_form'].validate();
+	document.forms['upsert_form'].submit();
+}
+
+</script>
+
+{% endblock %}
