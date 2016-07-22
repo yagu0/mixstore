@@ -1,4 +1,4 @@
-# [mixstore](https://auder.net/mixstore)
+# [mixstore](http://mixstore.org)
 
 Website which gather packages using mixture models, for any purpose like
 * Density estimation;
