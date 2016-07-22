@@ -1,6 +1,6 @@
 # [mixstore](https://auder.net/mixstore)
 
-Website which gather packages using mixture models, for any purpose like</span>
+Website which gather packages using mixture models, for any purpose like
 * Density estimation;
 * Classification, supervised or not;
 * Regression, ...>
